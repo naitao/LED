@@ -1,0 +1,6 @@
+1000
+switcy 120,120 through 129,129
+kurn ot 110,110 through 120,120
+svitch 857,894 through 920 ,932
+ swrtrh 422,325 through 587,968
+turn ofx 304,448 through 691,976
