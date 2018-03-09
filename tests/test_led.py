@@ -3,11 +3,11 @@
 
 import pytest
 from led.led import main, get_response, parse_args
-import sys
+import sys, os
 
 __author__ = "Peng Ye"
 __copyright__ = "Peng Ye"
-__license__ = "GPL3"
+__license__ = "GLP3"
 
 
 def test_get_response_001():
@@ -28,7 +28,8 @@ def test_main_003(capsys):
     # assertion_003:
     #   Verify when 'turn on' the light from (120,120) to
     #   (129,129), there will be 100 lights be turned on
-    sys.argv = [" ", "--input", "./../data/input_test_003.txt"]
+    current_path = os.path.dirname(os.path.abspath(__file__))
+    sys.argv = [" ", "--input", current_path + "/../data/input_test_003.txt"]
     main()
     out,err = capsys.readouterr()
     assert "100" in out
@@ -38,7 +39,8 @@ def test_main_004(capsys):
     #   Verify when 'turn on' the light from (120,120) to
     #   (129,129), and 'turn off' the light from (110,110) to (120,120),
     #   then there will be 99 lights turning on
-    sys.argv = [" ", "--input", "./../data/input_test_004.txt"]
+    current_path = os.path.dirname(os.path.abspath(__file__))
+    sys.argv = [" ", "--input", current_path + "/../data/input_test_004.txt"]
     main()
     out,err = capsys.readouterr()
     assert "99" in out
@@ -48,7 +50,8 @@ def test_main_005(capsys):
     #   Verify when 'switch' the light from (120,120) to
     #   (123,123), and 'switch' the light from (121,121) to (122,122),
     #   then there will be 12 lights turning on
-    sys.argv = [" ", "--input", "./../data/input_test_005.txt"]
+    current_path = os.path.dirname(os.path.abspath(__file__))
+    sys.argv = [" ", "--input", current_path + "/../data/input_test_005.txt"]
     main()
     out,err = capsys.readouterr()
     assert "12" in out
@@ -57,7 +60,8 @@ def test_main_006(capsys):
     # assertion_006:
     #   Verify incorrect keywords of handling on the light will do nothing
     #   but the program will not raise the error
-    sys.argv = [" ", "--input", "./../data/input_test_006.txt"]
+    current_path = os.path.dirname(os.path.abspath(__file__))
+    sys.argv = [" ", "--input", current_path + "/../data/input_test_006.txt"]
     main()
     out,err = capsys.readouterr()
     assert "0" in out
@@ -70,7 +74,8 @@ def test_main_007(capsys):
     #   then there will be 5 lights turning on, in which the outside
     #   of the grid will not be affected and there will NOT be Error message
     #   raised
-    sys.argv = [" ", "--input", "./../data/input_test_007.txt"]
+    current_path = os.path.dirname(os.path.abspath(__file__))
+    sys.argv = [" ", "--input", current_path + "/../data/input_test_007.txt"]
     main()
     out,err = capsys.readouterr()
     assert "5" in out
